@@ -13,7 +13,7 @@ namespace WindowsFormsApplication2
     public partial class Form1 : Form
     {
         string oldValue;
-        int act = 0;
+        char act = '0';
         public Form1()
         {
             InitializeComponent();
@@ -77,77 +77,38 @@ namespace WindowsFormsApplication2
 
         private void button11_Click(object sender, EventArgs e)
         {
-            act = 1;
+            act = '+';
             oldValue = textBox1.Text;
             textBox1.Text = "";
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (act == 1)
-            {
-                textBox1.Text = Convert.ToString(Convert.ToDouble(oldValue) + Convert.ToDouble(textBox1.Text));
-                act = 0;
-            }
-            else if (act == 2)
-            {
-                textBox1.Text = Convert.ToString(Convert.ToInt32(oldValue) - Convert.ToInt32(textBox1.Text));
-                act = 0;
-            }
-            else if (act == 3)
-            {
-                textBox1.Text = Convert.ToString(Convert.ToDouble(oldValue) * Convert.ToDouble(textBox1.Text));
-                act = 0;
-            }
-            else if (act == 4)
-            {
-                textBox1.Text = Convert.ToString(Convert.ToDouble(oldValue) / Convert.ToDouble(textBox1.Text));
-                act = 0;
-            }
-            else if (act == 5)
-            {
-                textBox1.Text = Convert.ToString(Math.Sqrt(Convert.ToDouble(textBox1.Text)));
-                act = 0;
-            }
-
-            else if (act == 6)
-            {
-                textBox1.Text = Convert.ToString(Math.Pow(Convert.ToDouble(oldValue), Convert.ToDouble(textBox1.Text)));
-
-                act = 0;
-            }
-            else if (act == 7)
-            {
-                textBox1.Text = Convert.ToString(1 / Convert.ToDouble(textBox1.Text));
-                act = 0;
-            }
-        }
+       
 
         private void button12_Click(object sender, EventArgs e)
         {
-            act = 2;
+            act = '-';
             oldValue = textBox1.Text;
             textBox1.Text = "";
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            act = 3;
+            act = '*';
             oldValue = textBox1.Text;
             textBox1.Text = "";
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
-            act = 4;
+            act = '/';
             oldValue = textBox1.Text;
             textBox1.Text = "";
         }
 
         private void button16_Click(object sender, EventArgs e)
         {
-            act = 0;
+            act = '0';
             oldValue = "";
             textBox1.Text = "";
         }
@@ -164,21 +125,55 @@ namespace WindowsFormsApplication2
 
         private void button20_Click(object sender, EventArgs e)
         {
-            act = 5;
+            act = 's';
         }
 
         private void button19_Click(object sender, EventArgs e)
         {
-            act = 6;
+            act = '^';
             oldValue = textBox1.Text;
             textBox1.Text = "";
         }
 
         private void button21_Click(object sender, EventArgs e)
         {
-            act = 7;
+            act = '1';
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            switch (act)
+            {
+                case '+':
+                    textBox1.Text = Convert.ToString(Convert.ToDouble(oldValue) + Convert.ToDouble(textBox1.Text));
+                    act = '0';
+                    break;
+                case '-':
+                    textBox1.Text = Convert.ToString(Convert.ToInt32(oldValue) - Convert.ToInt32(textBox1.Text));
+                    act = '0';
+                    break;
+                case '*':
+                    textBox1.Text = Convert.ToString(Convert.ToDouble(oldValue) * Convert.ToDouble(textBox1.Text));
+                    act = '0';
+                    break;
+                case '/':
+                    textBox1.Text = Convert.ToString(Convert.ToDouble(oldValue) / Convert.ToDouble(textBox1.Text));
+                    act = '0';
+                    break;
+                case 's':
+                    textBox1.Text = Convert.ToString(Math.Sqrt(Convert.ToDouble(textBox1.Text)));
+                    act = '0';
+                    break;
+                case '^':
+                    textBox1.Text = Convert.ToString(Math.Pow(Convert.ToDouble(oldValue), Convert.ToDouble(textBox1.Text)));
+                    act = '0';
+                    break;
+                case '1':
+                    textBox1.Text = Convert.ToString(1 / Convert.ToDouble(textBox1.Text));
+                    act = '0';
+                    break;
+            }
+            }
         }
     }
-}
 
     
